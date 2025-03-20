@@ -1,101 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 44 50% 98%;
+    --foreground: 20 14% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 44 50% 98%;
+    --card-foreground: 20 14% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 20 14% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 100 25% 35%;
+    --primary-foreground: 44 50% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 88 30% 92%;
+    --secondary-foreground: 90 20% 25%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 90 40% 92%;
+    --accent-foreground: 90 30% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 20 5% 90%;
+    --input: 20 5% 90%;
+    --ring: 100 25% 35%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cream text-foreground font-sans antialiased;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/70 shadow-md border border-white/20;
+  }
+  
+  /* Hover effect for buttons */
+  .btn-hover {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  
+  .btn-hover::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white/20 -translate-x-full;
+    transition: transform 0.6s ease;
+  }
+  
+  .btn-hover:hover::after {
+    @apply translate-x-0;
+  }
+  
+  /* Subtle border effect */
+  .subtle-border {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Gradient text effect for highlights */
+  .text-gradient {
+    @apply inline-block text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #637239 0%, #9aab63 100%);
+  }
+  
+  /* Image reveal animation */
+  .img-reveal {
+    @apply relative overflow-hidden;
+  }
+  
+  .img-reveal img {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+  }
+  
+  .img-reveal:hover img {
+    @apply scale-105;
+  }
+  
+  /* Special scroll-triggered animations */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Custom section spacing */
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  /* Product price badge */
+  .price-badge {
+    @apply inline-flex items-center justify-center px-4 py-1 rounded-full text-sm font-medium;
+    background: linear-gradient(135deg, #637239 0%, #9aab63 100%);
+    box-shadow: 0 2px 10px rgba(122, 142, 73, 0.15);
   }
 }
