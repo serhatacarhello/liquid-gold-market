@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#home" className="text-2xl font-serif font-medium">Cadianda Naturals</a>
+            <a href="#home" className="text-2xl font-serif font-medium">Cadianda Gold</a>
             <p className="mt-2 text-olive-200 max-w-xs">
               Premium natural olive oil, crafted with passion and tradition.
             </p>
@@ -36,7 +36,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-6 border-t border-olive-700/50 flex flex-col md:flex-row justify-between items-center">
           <p className="text-olive-300 text-sm">
-            &copy; {currentYear} Cadianda Naturals. All rights reserved.
+            &copy; {currentYear} Cadianda Gold. All rights reserved.
           </p>
           
           <div className="mt-4 md:mt-0">

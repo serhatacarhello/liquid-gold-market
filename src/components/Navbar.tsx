@@ -37,7 +37,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#home" className="flex items-center space-x-2">
-          <span className="text-xl font-serif font-medium text-olive-800">Cadianda Naturals</span>
+          <span className="text-xl font-serif font-medium text-olive-800">Cadianda Gold</span>
         </a>
         
         {/* Desktop Menu */}
