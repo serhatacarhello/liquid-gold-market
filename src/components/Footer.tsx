@@ -1,19 +1,32 @@
 
+import { Instagram, Facebook, Twitter, MapPin, Mail, ExternalLink } from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
     <footer className="py-12 px-6 bg-olive-800 text-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          <div className="mb-8 md:mb-0 max-w-sm">
             <a href="#home" className="text-2xl font-serif font-medium">Olivanda Luxe</a>
-            <p className="mt-2 text-olive-200 max-w-xs">
-              Premium natural olive oil, crafted with passion and tradition.
+            <p className="mt-2 text-olive-200">
+              Premium natural olive oil from the ancient lands of Lycia, crafted with passion and tradition dating back centuries.
             </p>
+            <div className="mt-6 flex space-x-4">
+              <a href="#" className="text-olive-200 hover:text-white transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="text-olive-200 hover:text-white transition-colors">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="text-olive-200 hover:text-white transition-colors">
+                <Twitter size={20} />
+              </a>
+            </div>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div>
               <h4 className="font-medium mb-3 text-olive-100">Quick Links</h4>
               <ul className="space-y-2">
@@ -25,24 +38,51 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="font-medium mb-3 text-olive-100">Legal</h4>
+              <h4 className="font-medium mb-3 text-olive-100">Our Heritage</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">About Cadianda</a></li>
+                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">Ancient Methods</a></li>
+                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">Our Story</a></li>
+                <li><a href="#" className="text-olive-200 hover:text-white transition-colors">Sustainability</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-medium mb-3 text-olive-100">Contact</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <MapPin size={18} className="text-olive-300 mt-0.5 shrink-0" />
+                  <span className="text-olive-200">Fethiye, Muğla, Turkey<br />Ancient Lycia Region</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail size={18} className="text-olive-300 shrink-0" />
+                  <a href="mailto:info@olivandaluxe.com" className="text-olive-200 hover:text-white transition-colors">info@olivandaluxe.com</a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         
-        <div className="mt-12 pt-6 border-t border-olive-700/50 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-olive-300 text-sm">
-            &copy; {currentYear} Olivanda Luxe. All rights reserved.
-          </p>
-          
-          <div className="mt-4 md:mt-0">
+        <div className="mt-12 pt-6 border-t border-olive-700/50">
+          <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <p className="text-olive-300 text-sm">
-              Designed with care for olive oil enthusiasts
+              &copy; {currentYear} Olivanda Luxe. All rights reserved.
             </p>
+            
+            <div className="flex flex-col md:flex-row gap-4 items-center text-center md:text-right">
+              <a href="#" className="text-olive-300 text-sm hover:text-white transition-colors">Privacy Policy</a>
+              <span className="hidden md:inline text-olive-500">|</span>
+              <a href="#" className="text-olive-300 text-sm hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+          
+          <div className="mt-6 bg-olive-700/30 rounded-lg p-4 text-sm text-olive-200">
+            <div className="flex items-start gap-2">
+              <ExternalLink size={16} className="mt-0.5 shrink-0" />
+              <p>
+                Olivanda draws inspiration from Cadianda, an ancient Lycian city with a heritage of olive cultivation dating back to 5000 BCE. Our traditional methods honor this rich cultural legacy.
+              </p>
+            </div>
           </div>
         </div>
       </div>
