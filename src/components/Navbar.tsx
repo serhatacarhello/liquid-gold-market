@@ -2,30 +2,25 @@
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  // Change navbar style on scroll
+  const { t } = useLanguage();
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Product', href: '#product' },
-    { name: 'Benefits', href: '#benefits' },
-    { name: 'Contact', href: '#contact' },
+    { name: t.nav.home, href: '#home' },
+    { name: t.nav.product, href: '#product' },
+    { name: t.nav.benefits, href: '#benefits' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -39,36 +34,37 @@ const Navbar = () => {
         <a href="#home" className="flex items-center space-x-2">
           <span className="text-xl font-serif font-medium text-olive-800">Olivanda Luxe</span>
         </a>
-        
-        {/* Desktop Menu */}
+
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.href}
               href={link.href}
               className="text-sm font-medium text-olive-800 hover:text-olive-600 transition-colors"
             >
               {link.name}
             </a>
           ))}
+          <LanguageSwitcher />
         </div>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-olive-800"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+
+        <div className="md:hidden flex items-center gap-3">
+          <LanguageSwitcher />
+          <button
+            className="text-olive-800"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
-      
-      {/* Mobile Menu */}
+
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 glass animate-fade-in py-4">
           <div className="flex flex-col space-y-4 px-6">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="text-olive-800 py-2 text-sm font-medium"
                 onClick={() => setMobileMenuOpen(false)}
