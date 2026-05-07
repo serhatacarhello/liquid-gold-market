@@ -69,8 +69,9 @@ const en = {
       terms: 'Terms of Service',
       heritageNote: 'Olivanda draws inspiration from Cadianda, an ancient Lycian city with a heritage of olive cultivation dating back to 5000 BCE. Our traditional methods honor this rich cultural legacy.',
     },
-  },
-  tr: {
+} satisfies Record<string, unknown>;
+
+const tr: typeof en = {
     nav: { home: 'Ana Sayfa', product: 'Ürün', benefits: 'Faydalar', contact: 'İletişim' },
     hero: {
       badge: 'Premium Kalite',
@@ -139,7 +140,8 @@ const en = {
       terms: 'Kullanım Koşulları',
       heritageNote: 'Olivanda, MÖ 5000’lere uzanan zeytin yetiştiriciliği mirasıyla bilinen antik Likya kenti Cadianda’dan ilham alır. Geleneksel yöntemlerimiz bu zengin kültürel mirasa saygı duyar.',
     },
-  },
-} as const;
+};
 
-export type TranslationKeys = typeof translations['en'];
+export const translations = { en, tr };
+export type TranslationKeys = typeof en;
+
