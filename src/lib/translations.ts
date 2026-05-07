@@ -1,7 +1,6 @@
 export type Lang = 'en' | 'tr';
 
-export const translations = {
-  en: {
+const en = {
     nav: { home: 'Home', product: 'Product', benefits: 'Benefits', contact: 'Contact' },
     hero: {
       badge: 'Premium Quality',
